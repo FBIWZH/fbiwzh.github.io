@@ -16,16 +16,16 @@
   <meta name="author" content="FBIWZH">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这是一篇测试文章！ 便签 标签 标签 标签 标签  行内标签LabelLabel 按钮text">
+    <meta name="description" content="pbds俗称平板电视，__gnu_pbds自带了封装好了的平衡树、字典树、hash数据结构，速度快过$STL$，它的常数甚至比手打的还低。 $Ⅰ$.引入想要使用$pbds$，必须先要添加头文件，$pbds$并不属于bits&#x2F;stdc++.h的一部分，所以也只能在$g++\ Mingw64$的环境下食用。 以下是万能头文件：1#include &lt;bits&#x2F;extc++.h&gt; 以下是命名空">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试文章">
-<meta property="og:url" content="http://example.com/2023/09/03/test/index.html">
+<meta property="og:title" content="浅析pbds库">
+<meta property="og:url" content="http://example.com/2023/09/15/pbds-introduction/index.html">
 <meta property="og:site_name" content="FBIWZH&#39;s Zone">
-<meta property="og:description" content="这是一篇测试文章！ 便签 标签 标签 标签 标签  行内标签LabelLabel 按钮text">
+<meta property="og:description" content="pbds俗称平板电视，__gnu_pbds自带了封装好了的平衡树、字典树、hash数据结构，速度快过$STL$，它的常数甚至比手打的还低。 $Ⅰ$.引入想要使用$pbds$，必须先要添加头文件，$pbds$并不属于bits&#x2F;stdc++.h的一部分，所以也只能在$g++\ Mingw64$的环境下食用。 以下是万能头文件：1#include &lt;bits&#x2F;extc++.h&gt; 以下是命名空">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.imgdb.cn/item/64edcb44661c6c8e542a055e.jpg">
-<meta property="article:published_time" content="2023-09-03T02:20:25.998Z">
-<meta property="article:modified_time" content="2023-09-03T00:18:59.253Z">
+<meta property="article:published_time" content="2023-09-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-15T13:21:51.680Z">
 <meta property="article:author" content="FBIWZH">
 <meta property="article:tag" content="原创">
 <meta name="twitter:card" content="summary_large_image">
@@ -33,7 +33,7 @@
   
   
   
-  <title>测试文章 - FBIWZH&#39;s Zone</title>
+  <title>浅析pbds库 - FBIWZH&#39;s Zone</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="测试文章"></span>
+            <span id="subtitle" data-typed-text="浅析pbds库"></span>
           
         </div>
 
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-03 10:20" pubdate>
-          2023年9月3日 上午
+        <time datetime="2023-09-15 00:00" pubdate>
+          2023年9月15日 凌晨
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          39 字
+          1.8k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          1 分钟
+          16 分钟
         
       </span>
     
@@ -270,20 +270,74 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">测试文章</h1>
+            <h1 id="seo-header">浅析pbds库</h1>
             
             
               <div class="markdown-body">
                 
-                <p>这是一篇测试文章！</p>
-<p>便签</p>
-<p class="note note-primary">标签</p>
-<p class="note note-success">标签</p>
-<p class="note note-warning">标签</p>
-<p class="note note-info">标签</p>
+                <p><code>pbds</code>俗称平板电视，<code>__gnu_pbds</code>自带了封装好了的平衡树、字典树、<code>hash</code>数据结构，速度快过$STL$，它的常数甚至比手打的还低。</p>
+<h1 id="Ⅰ-引入"><a href="#Ⅰ-引入" class="headerlink" title="$Ⅰ$.引入"></a>$Ⅰ$.引入</h1><p>想要使用$pbds$，必须先要添加头文件，$pbds$并不属于<code>bits/stdc++.h</code>的一部分，所以也只能在$g++\ Mingw64$的环境下食用。</p>
+<h5 id="以下是万能头文件："><a href="#以下是万能头文件：" class="headerlink" title="以下是万能头文件："></a>以下是万能头文件：</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/extc++.h&gt;</span></span><br></code></pre></td></tr></table></figure>
+<h5 id="以下是命名空间："><a href="#以下是命名空间：" class="headerlink" title="以下是命名空间："></a>以下是命名空间：</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> __gnu_cxx;<br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> __gnu_pbds;<br></code></pre></td></tr></table></figure>
+<p><del>不得不说确实有点难背</del></p>
+<h1 id="Ⅱ-使用"><a href="#Ⅱ-使用" class="headerlink" title="$Ⅱ$.使用"></a>$Ⅱ$.使用</h1><h2 id="1-哈希表"><a href="#1-哈希表" class="headerlink" title="1.哈希表"></a>1.哈希表</h2><hr>
+<p>个人认为这是最好用的。<br>常数很小，支持所有类型，不像<code>unordered_map</code> (bushi<br>对比<code>unordered_map</code>:</p>
+<ul>
+<li><code>+O2</code>的情况下速度快了$30ms~80ms$左右</li>
+<li>不加<code>O2</code>的情况下速度快了$100ms~120ms$左右</li>
+<li>空间复杂度略大</li>
+<li>功能相当完备</li>
+<li>比<code>unordered_map</code>更难$hack$</li>
+</ul>
+<p>在$pbds$中，有两种$hash$，分别是<br><code>cc_hash_table</code> 和 <code>gp_hash_table</code> 分别使用了拉链法和探查法。一般来说<code>gp_hash_table</code>会快一点</p>
+<p>使用方式：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">gp_hash_table&lt;string<span class="hljs-comment">/*key值的类型这里以string举例*/</span>,string<span class="hljs-comment">/*value值的类型这里以string举例*/</span>&gt;;<br></code></pre></td></tr></table></figure>
+<p>其实直接当$map$用就好了….</p>
+<h3 id="虽然但是！"><a href="#虽然但是！" class="headerlink" title="虽然但是！"></a>虽然但是！</h3><p>事实上，虽然<code>gp_hash_table</code>很快，但是由于其固定的hash码，在<code>CF</code>和<code>SPOJ</code>等<code>OJ</code>上会被卡</p>
+<p>以下给出一种防止被卡的方法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;chrono&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;ext/pb_ds/assoc_container.hpp&gt;</span><span class="hljs-comment">//hash_table的库，如果嫌麻烦可以换成pbds万能头</span></span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> RANDOM = std::chrono::high_resolution_clock::<span class="hljs-built_in">now</span>().<span class="hljs-built_in">time_since_epoch</span>().<span class="hljs-built_in">count</span>();<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">chash</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function">    <span class="hljs-type">const</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> x ^RANDOM;<br>    &#125;<br>&#125;;<br>__gnu_pbds::gp_hash_table<br>        &lt; <span class="hljs-comment">/* &lt;key类型名&gt; */</span> <span class="hljs-type">int</span>, <br>          <span class="hljs-comment">/* &lt;value类型名&gt; */</span> <span class="hljs-type">int</span>, <br>          chash &gt;table;<br></code></pre></td></tr></table></figure>
 
-<p>行内标签<br><span class="label label-primary">Label</span><br><span class="label label-success">Label</span></p>
-<p>按钮<br><a class="btn" href="url" title="title">text</a></p>
+<h2 id="2-优先队列"><a href="#2-优先队列" class="headerlink" title="2.优先队列"></a>2.优先队列</h2><hr>
+<p>以下是它的定义</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span>&lt;<br>    <span class="hljs-keyword">typename</span> ValueType,<br>    <span class="hljs-keyword">typename</span> Comp = std::less&lt;ValueType&gt;,<br>    <span class="hljs-keyword">typename</span> Tag = pairing_heap_tag,<br>    <span class="hljs-keyword">typename</span> Alloc = std::allocator&lt;<span class="hljs-type">char</span>&gt;&gt;<br><span class="hljs-keyword">class</span> priority_queue;<br></code></pre></td></tr></table></figure>
+<p>同样，跑的也比<code>std::priority_queue</code>快</p>
+<h4 id="特点-对比std："><a href="#特点-对比std：" class="headerlink" title="特点&amp;对比std："></a>特点&amp;对比<code>std</code>：</h4><ul>
+<li><p>和<code>STL</code>中的仿函数排序规则相近</p>
+</li>
+<li><p>声明形式大致如<code>__gnu_pbds::priority_queue&lt;int, greater&lt;int&gt;, pairing_heap_tag&gt; q;</code>，为了防止跟<code>std</code>的名称冲突，故需要加上命名空间</p>
+</li>
+<li><ul>
+<li>小顶堆</li>
+<li>采用的为配对堆（各项效果最好）</li>
+<li>跟<code>STL</code>中的声明不一样，<code>STL</code>中是第三个参数是仿函数类，而<code>pbds</code>中则是第二个参数是仿函数类，第三个参数是配对堆</li>
+<li>对比<code>std</code>中的声明：<code>priority&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt;</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ul>
+<li><p>定义时不需要<code>vector&lt;T&gt;</code></p>
+</li>
+<li><p>共三个参数，分别为：</p>
+</li>
+<li><ul>
+<li>元素类型</li>
+<li>仿函数类</li>
+<li>堆的类型(一般来说使用<code>pairing_heap_tag</code>)</li>
+</ul>
+</li>
+<li><p>其中仿函数类可以使用<code>greater&lt;T&gt;,less&lt;T&gt;</code>，也可以自己手写一个结构体<code>myCmp</code></p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">myCmp</span><br>&#123;<span class="hljs-comment">//按照b降序</span><br> <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(node x, node y)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> x.b &lt; y.b;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h4 id="堆的基本操作的函数"><a href="#堆的基本操作的函数" class="headerlink" title="堆的基本操作的函数"></a>堆的基本操作的函数</h4><ul>
+<li><code>push()</code>入堆</li>
+<li><code>pop()</code>出堆</li>
+<li><code>top()</code>堆顶</li>
+<li><code>empty()</code>判空</li>
+<li><code>size()</code>个数</li>
+<li><code>clear()</code>清空</li>
+</ul>
 
                 
               </div>
@@ -329,8 +383,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>测试文章</div>
-      <div>http://example.com/2023/09/03/test/</div>
+      <div>浅析pbds库</div>
+      <div>http://example.com/2023/09/15/pbds-introduction/</div>
     </div>
     <div class="license-meta">
       
@@ -342,7 +396,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月3日</div>
+          <div>2023年9月15日</div>
         </div>
       
       
@@ -374,15 +428,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/15/pbds-introduction/" title="浅析pbds库">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">浅析pbds库</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/09/03/test/" title="测试文章">
+                        <span class="hidden-mobile">测试文章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
